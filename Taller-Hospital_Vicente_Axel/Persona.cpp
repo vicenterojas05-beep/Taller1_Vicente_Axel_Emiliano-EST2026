@@ -9,3 +9,12 @@ Persona::Persona(string n, int e){
 Persona::~Persona(){
 
 }
+
+string Persona::getNombre(){
+	
+	return nombre;
+}
+
+int Persona::getEdad(){
+	return edad;
+} 

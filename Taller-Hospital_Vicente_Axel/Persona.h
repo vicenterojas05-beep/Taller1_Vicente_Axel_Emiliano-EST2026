@@ -1,7 +1,7 @@
 
-#include <string>
 using namespace std;
 
+#include <string>
 class Persona{
 	
 	private:
@@ -13,6 +13,10 @@ class Persona{
 		
 		Persona(string n, int e);
 		virtual ~Persona();
+		
+		string getNombre();
+		
+		int getEdad();
 	
 	
 		

@@ -9,3 +9,12 @@ Paciente::Paciente(string n, int e, string i , string s) : Persona(n,e){
 
 Paciente::~Paciente(){
 }
+
+
+string Paciente::getId(){
+	return id;
+}
+
+string Paciente::getServicio(){
+	return servicio;
+}

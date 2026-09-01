@@ -11,6 +11,9 @@ class Paciente: public Persona{
 		
 		Paciente(string n, int e, string i , string s);
 		~Paciente() override;
+		
+		string getId();
+		string getServicio();
 	
 	
 };
