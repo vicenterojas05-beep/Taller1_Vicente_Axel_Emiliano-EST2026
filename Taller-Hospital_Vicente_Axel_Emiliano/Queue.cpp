@@ -22,6 +22,11 @@ void Queue:: pop(){
 	Nodo* borrar = head;
 	
 	head = head->getSiguiente();
+
+	if(head==nullptr){  //esto es para cuando la queue solo tuviera un nodo, en este caso head seria nullptr pero last
+						//	
+		last=nullptr;
+	}
 	
 	delete borrar; //aclaracion : borra solo el nodo, no el paciente en su interior, esto en el caso de que el paciente se ocupe para
 	                   //otra cosa siuuu
@@ -71,12 +76,15 @@ Queue::~Queue(){
 		
 		Nodo* borrar = head;
 		head = head->getSiguiente();
+
+		if(head==nullptr){
+			last=nullptr;   //esto en el caso de que solo hubiera un Nodo en la cola, en este caso head quedaria en nullptr
+			                //pero last seguiria apuntando en esa direccion en la que ya no hay nada, por eso mejor lo hacemos null
+		}
 		
 		
-		delete borrar->getPaciente(); //borra el paciente del nodo
-		
-		delete borrar; //borra el nodo vacio
-		
+		delete borrar;   //no borra a los pacientes, de eso se encargara la clase lista. Esto para hacer que no haya un doble borrado
+		                 //en el caso de que se haga delete queue y luego delete stack
 		
 	}
 }

@@ -1,5 +1,5 @@
 #include "Nodo.h"
-using namespace std;
+
 
 
 class Queue{

@@ -9,15 +9,16 @@ class Lista{
 	private:
 		
 		string servicio;
-		Lista* siguiente;
-		Queue* pacientes;
+		Lista* siguiente; //siguiente lista de servicio 
+		Nodo* pacientes;
+		Nodo* ultimo;	//ultimo paciente
 		
 	public:
 		
 		Lista(string s);
 		~Lista();
 		
-		void insertar(Nodo* p);
+		void insertar(Paciente* p);
 		
 		void mostrar();
 		
