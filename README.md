@@ -4,6 +4,7 @@
 
 - **Axel Alcayaga** - Ingeniería Civil en Computación e Informática - 20.832.945-6
 - **Vicente Rojas** - Ingeniería Civil en Computación e Informática - 22.141.463-2
+- **Emiliano Toro** - Ingeniería en Tecnologías de Información - 
 
 ## Instrucciones para ejecutar
 
