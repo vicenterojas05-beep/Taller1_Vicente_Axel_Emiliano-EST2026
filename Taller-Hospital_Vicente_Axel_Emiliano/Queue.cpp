@@ -24,7 +24,7 @@ void Queue:: pop(){
 	head = head->getSiguiente();
 
 	if(head==nullptr){  //esto es para cuando la queue solo tuviera un nodo, en este caso head seria nullptr pero last
-						//	
+						//estaria apuntando a una direccion en donde ya no hay nadota	
 		last=nullptr;
 	}
 	

@@ -1,10 +1,13 @@
 #include "Nodo.h"
 
 
+
 Nodo::Nodo(Paciente* p){
 	
 	paciente = p;
 	siguiente = nullptr;
+
+
 }
 
 Nodo::~Nodo(){

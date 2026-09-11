@@ -1,6 +1,6 @@
 
 using namespace std;
-
+#pragma once
 #include <string>
 class Persona{
 	

@@ -25,6 +25,8 @@ class Lista{
 		bool estaVacio();
 		
 		void setSiguiente(Lista* s);
+
+		Lista* getNext();
 		
 		
 };
