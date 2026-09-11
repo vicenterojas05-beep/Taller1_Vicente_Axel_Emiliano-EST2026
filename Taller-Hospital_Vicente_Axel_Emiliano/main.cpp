@@ -69,6 +69,15 @@ void Leerarchivo(Queue* pacientes) {
     archivo.close();
 }
 
+void menu(){
+
+    cout<<"===  HOSPITAL MARMAJA  ==="<<endl;
+    cout<<"1. Atender pacientes"<<endl;
+    cout<<"2. Ver departamentos"<<endl;
+    cout<<"3. Revisar el historial de atención"<<endl;
+    cout<<"4. Salir"<<endl;
+}
+
 
 
 
@@ -80,9 +89,45 @@ int main(int argc, char** argv) {
 	Queue* cola = new Queue();
 	Leerarchivo(cola);
 
-	while(!cola->empty()){
-		cola->front()->getPaciente()->mostrar_info();
-		cola->pop();
-	}
+    int opcion = 0;
+
+    do{
+
+        menu();
+        cout<<"Ingrese una opción: ";
+        cin >> opcion;
+
+        switch(opcion){
+
+            case 1:
+            cout<<"Falta la funcion atender"<<endl;
+            break;
+
+            case 2:
+
+            cout<<"Falta la funcion"<<endl;
+            break;;
+
+            case 3:
+
+            cout<<"Falta la funcion"<<endl;
+            break;
+
+            case 4:
+
+            cout<<"Hasta luego :D"<<endl;
+            break;
+            
+
+        }
+
+        
+
+
+
+    }while(opcion!=4);
+    
+
+	
 	return 0;
 }
