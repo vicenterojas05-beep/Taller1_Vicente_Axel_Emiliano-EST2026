@@ -44,9 +44,7 @@ void Lista::insertar(Paciente* pac){
 	}
 }
 
-void Lista::mostrar(){
-	
-	cout<<"=====Pacientes en "<<servicio<<"====="<<endl;
+void Lista::mostrar(){ //imprime los pacientes 
 	
 	Nodo* cursor = pacientes;
 	
@@ -65,5 +63,21 @@ Lista* Lista::getNext(){
 
 void Lista::setSiguiente(Lista* l){
 	siguiente = l;
+
+}
+
+string Lista::getServicio(){
+	return servicio;
+}
+
+int Lista::cantidad_pacientes(){
+	Nodo* cursor = pacientes;
+	int cantidad = 0;
+	
+	while(cursor!=nullptr){
+		cantidad++;
+		cursor = cursor->getSiguiente();
+	}
+	return cantidad;
 
 }

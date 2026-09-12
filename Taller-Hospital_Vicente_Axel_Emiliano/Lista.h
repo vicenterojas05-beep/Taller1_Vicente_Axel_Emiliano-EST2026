@@ -27,6 +27,10 @@ class Lista{
 		void setSiguiente(Lista* s);
 
 		Lista* getNext();
+
+		string getServicio();
+
+		int cantidad_pacientes();
 		
 		
 };

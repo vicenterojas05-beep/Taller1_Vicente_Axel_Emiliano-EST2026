@@ -3,6 +3,8 @@
 #include <string>
 #include "Paciente.h"
 #include "Queue.h"
+#include "Hospital.h"
+#include "Stack.h"
 
 using namespace std;
 
@@ -57,7 +59,8 @@ void Leerarchivo(Queue* pacientes) {
             puntero++; 
         }
 
-		int edadn = stoi(edad); 
+        int edadn = stoi(edad);
+
 
 		Paciente* p = new Paciente(nombre,edadn,id,servicio); 
 		Nodo* n = new Nodo(p);
@@ -87,6 +90,7 @@ void menu(){
 
 int main(int argc, char** argv) {
 	Queue* cola = new Queue();
+    Hospital* hospital = new Hospital();
 	Leerarchivo(cola);
 
     int opcion = 0;
@@ -96,6 +100,8 @@ int main(int argc, char** argv) {
         menu();
         cout<<"Ingrese una opción: ";
         cin >> opcion;
+        cout<<endl;
+        cout<<endl;
 
         switch(opcion){
 
@@ -103,10 +109,27 @@ int main(int argc, char** argv) {
             cout<<"Falta la funcion atender"<<endl;
             break;
 
-            case 2:
+            case 2: {
+				
+			
 
-            cout<<"Falta la funcion"<<endl;
-            break;;
+            cout<<"=== DEPARTAMENTOS/SERVICIOS ==="<<endl;
+            cout<<endl;
+            hospital->mostrar_servicios();
+            cout<<endl;
+            cout<<"Seleccionar opción: ";
+
+            int elegir_servicio = 0;
+            cin>> elegir_servicio;
+
+            Lista* servicio_elegido = hospital->getServicio(elegir_servicio);
+            cout<<endl;
+            cout<<"=== ESTADO "<<servicio_elegido->getServicio()<<endl;
+            cout<<"Pacientes en el departamento de "<<servicio_elegido->getServicio()<<": "<<servicio_elegido->cantidad_pacientes()<<endl;
+            servicio_elegido->mostrar();
+            
+            break;
+			}
 
             case 3:
 

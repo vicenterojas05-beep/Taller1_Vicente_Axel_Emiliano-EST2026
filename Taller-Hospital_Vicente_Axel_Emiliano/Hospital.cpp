@@ -1,4 +1,5 @@
 #include "Hospital.h"
+#include <iostream>
 
 
 Hospital::Hospital(){
@@ -22,8 +23,13 @@ Hospital::Hospital(){
 
 }
 
-Lista* Hospital::getServicios(){
-    return urgencias;
+Lista* Hospital::getServicio(int s){
+
+    Lista* cursor = urgencias;
+    for(int i = 0; i<s-1; i++){
+        cursor=cursor->getNext();
+    }
+    return cursor;
 }
 
 Hospital::~Hospital(){
@@ -34,4 +40,16 @@ Hospital::~Hospital(){
         delete borrar;
     }
 
+}
+
+void Hospital::mostrar_servicios(){
+    Lista* cursor = urgencias;
+    int cont = 1;
+    while(cursor!=nullptr){
+        cout<<cont<<". "<<cursor->getServicio()<<endl;
+        cursor = cursor->getNext();
+        cont++;
+    }
+
+    
 }
