@@ -90,6 +90,7 @@ void menu(){
 
 int main(int argc, char** argv) {
 	Queue* cola = new Queue();
+    Stack* historial = new Stack;
     Hospital* hospital = new Hospital();
 	Leerarchivo(cola);
 
@@ -131,10 +132,19 @@ int main(int argc, char** argv) {
             break;
 			}
 
-            case 3:
+            case 3:{
 
-            cout<<"Falta la funcion"<<endl;
+            cout<<"== HISTORIAL DE ÚLTIMAS ATENCIONES DEL HOSPITAL =="<<endl;
+            cout<<endl;
+            if(historial->empty()){
+                cout<<"<< Todavía no se atiende a ningun paciente >>"<<endl;
+                break;
+            }
+            historial->mostrar_historial();
+            cout<<endl;
+            
             break;
+            }
 
             case 4:
 

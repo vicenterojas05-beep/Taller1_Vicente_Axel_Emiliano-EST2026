@@ -20,6 +20,8 @@ class Stack{
 		void push(Paciente* pac);
 		
 		bool empty();
+
+		void mostrar_historial();
 	
 };
 

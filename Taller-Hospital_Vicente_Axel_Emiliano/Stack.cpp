@@ -1,4 +1,5 @@
 #include "Stack.h"
+#include <iostream>
 
 
 
@@ -56,6 +57,18 @@ bool Stack:: empty(){
 	}
 	
 	
+}
+
+void Stack::mostrar_historial(){
+
+	Nodo* cursor = top;
+	while(cursor!=nullptr){
+		Paciente* p = cursor->getPaciente();
+		cout<<"Nombre: "<<p->getNombre()<<" | Edad: "<<p->getEdad()<<" | Departamento: "<<p->getServicio()<<endl;
+		cursor = cursor->getSiguiente();
+	}
+	
+
 }
 
 
