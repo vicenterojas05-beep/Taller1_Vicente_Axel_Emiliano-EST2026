@@ -24,9 +24,16 @@ Hospital::Hospital(){
 }
 
 Lista* Hospital::getServicio(int s){
-
+    if(s<=0){
+        cout<<"Error: ingreso un numero mayor que 0"<<endl;
+        return nullptr;
+    }
     Lista* cursor = urgencias;
     for(int i = 0; i<s-1; i++){
+        if(cursor==nullptr){
+            cout<<"Error: servicio no existente"<<endl;
+            break;
+        }
         cursor=cursor->getNext();
     }
     return cursor;
@@ -52,4 +59,18 @@ void Hospital::mostrar_servicios(){
     }
 
     
+}
+
+void Hospital::ingresar_paciente(Paciente* p){
+    Lista* cursor = urgencias;
+
+    while(cursor!=nullptr){
+        if(p->getServicio()==cursor->getServicio()){
+            cursor->insertar(p);
+            return;
+        }
+        cursor=cursor->getNext();
+    }
+    cout<<"ERROR SERVICIO DE PACIENTE NO ENCONTRADO, VERIFICAR SI ESTA ESCRITO CORRECTAMENTE Y SACAR DE HISTORIAL"<<endl;
+
 }

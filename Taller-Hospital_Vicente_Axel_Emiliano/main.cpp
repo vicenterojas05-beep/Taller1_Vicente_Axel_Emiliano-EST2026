@@ -90,7 +90,7 @@ void menu(){
 
 int main(int argc, char** argv) {
 	Queue* cola = new Queue();
-    Stack* historial = new Stack;
+    Stack* historial = new Stack();
     Hospital* hospital = new Hospital();
 	Leerarchivo(cola);
 
@@ -106,10 +106,46 @@ int main(int argc, char** argv) {
 
         switch(opcion){
 
-            case 1:
-            cout<<"Falta la funcion atender"<<endl;
+            case 1:{
+            cout<<"=== Pacientes en espera ==="<<endl;
+            cola->mostrar_espera();
+            cout<<endl;
+            int cantidad_atencion = 0;
+            cout<<"Indique la cantidad de pacientes a atender: ";
+            cin>>cantidad_atencion;
+            cout<<endl;
+            cout<<"=== ATENDIENDO PACIENTES ==="<<endl;
+            for(int i = 0; i<cantidad_atencion;i++){
+                Nodo* n = cola->front();//tomamos el nodo en el que se encuentra el paciente
+
+                if(n==nullptr){
+                    cout<<"Ya no hay pacientes en espera"<<endl;
+                    break;
+                }
+
+                Paciente* p = n->getPaciente(); //obtenemos al paciente
+
+                
+                historial->push(p);
+                hospital->ingresar_paciente(p); //ingresamos al paciente y no al nodo, esto para que no este el mismo nodo
+                                                //en dos o  tres listas diferentes de nodos. 
+                cout<<"ID: "<<p->getId()<<endl;
+                cout<<"Nombre: "<<p->getNombre()<<endl;
+                cout<<"Edad: "<<p->getEdad()<<endl;
+                cout<<"Servicio: "<<p->getServicio()<<endl;
+                cout<<endl;
+                cout<<"Paciente enviado a "<<p->getServicio()<<endl;
+                cola->pop(); //Eliminamos solo el nodo
+                cout<<"============================================"<<endl;
+
+            }
+
+
+
+            
             break;
 
+        }
             case 2: {
 				
 			
@@ -124,6 +160,9 @@ int main(int argc, char** argv) {
             cin>> elegir_servicio;
 
             Lista* servicio_elegido = hospital->getServicio(elegir_servicio);
+            if(servicio_elegido==nullptr){ //devuelve null si el numero ingresado fue mayor o menor a la cant de servicios
+                break;
+            }
             cout<<endl;
             cout<<"=== ESTADO "<<servicio_elegido->getServicio()<<endl;
             cout<<"Pacientes en el departamento de "<<servicio_elegido->getServicio()<<": "<<servicio_elegido->cantidad_pacientes()<<endl;
@@ -149,6 +188,9 @@ int main(int argc, char** argv) {
             case 4:
 
             cout<<"Hasta luego :D"<<endl;
+            delete hospital;
+            delete cola;
+            delete historial;
             break;
             
 

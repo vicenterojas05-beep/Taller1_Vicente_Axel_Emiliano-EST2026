@@ -1,5 +1,5 @@
 #include "Queue.h"
-
+#include <iostream>
 
 
 Queue::Queue(){
@@ -83,8 +83,24 @@ Queue::~Queue(){
 		}
 		
 		
-		delete borrar;   //no borra a los pacientes, de eso se encargara la clase lista. Esto para hacer que no haya un doble borrado
-		                 //en el caso de que se haga delete queue y luego delete stack
+		delete borrar->getPaciente();
+		delete borrar;   
 		
 	}
+}
+
+void Queue::mostrar_espera(){
+	if(head==nullptr){
+		cout<<"Sin pacientes en espera"<<endl;
+		return;
+	}
+	Nodo* cursor = head;
+	int contador = 1;
+	while(cursor!=nullptr){
+		Paciente* p = cursor->getPaciente();
+		cout<<contador<<"."<<" "<<p->getId()<<" - "<<p->getNombre()<<endl;
+		cursor=cursor->getSiguiente(); 
+		contador++;
+	}
+
 }

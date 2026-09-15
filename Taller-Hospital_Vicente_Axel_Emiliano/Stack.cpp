@@ -14,7 +14,7 @@ Stack::~Stack(){
 		Nodo* borrar = top;
 		top=top->getSiguiente();
 		
-		delete borrar;  //no borra a los pacientes, de eso se encargara la clase lista. Esto para hacer que no haya un doble borrado
+		delete borrar;  //no borra a los pacientes, de eso se encargara la clase lista o queue. Esto para hacer que no haya un doble borrado
 		                 //en el caso de que se haga delete queue y luego delete stack
 	}
 	
@@ -25,8 +25,8 @@ Nodo* Stack:: Top(){
 	return top;
 }
 
-void Stack:: push(Paciente* pac){  
-	Nodo* n = new Nodo(pac);
+void Stack:: push(Paciente* p){  
+	Nodo* n = new Nodo(p);
 	n->setSiguiente(top);
 	top=n;
 }

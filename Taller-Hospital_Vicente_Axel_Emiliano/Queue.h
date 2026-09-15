@@ -1,5 +1,5 @@
 #include "Nodo.h"
-
+#pragma once 
 
 
 class Queue{
@@ -23,6 +23,8 @@ class Queue{
 		void push(Nodo* n);
 		
 		bool empty();
+
+		void mostrar_espera();
 		
 		
 		
